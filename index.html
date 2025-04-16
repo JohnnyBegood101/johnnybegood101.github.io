@@ -64,6 +64,7 @@
     #result {
       margin-top: 20px;
       font-weight: bold;
+      font-size: 1.2rem;
     }
   </style>
 </head>
@@ -131,44 +132,66 @@
         <input type="radio" name="q5" value="no"> No
       </label>
 
+      <label>Do you struggle with identity or knowing who you really are?<br>
+        <input type="radio" name="q6" value="yes"> Yes
+        <input type="radio" name="q6" value="no"> No
+      </label>
+
+      <label>Do you experience intense mood swings or emotional reactions?<br>
+        <input type="radio" name="q7" value="yes"> Yes
+        <input type="radio" name="q7" value="no"> No
+      </label>
+
+      <label>Do you use charm or empathy to influence others?<br>
+        <input type="radio" name="q8" value="yes"> Yes
+        <input type="radio" name="q8" value="no"> No
+      </label>
+
+      <label>Do you often crave control or feel uncomfortable when you're not in charge?<br>
+        <input type="radio" name="q9" value="yes"> Yes
+        <input type="radio" name="q9" value="no"> No
+      </label>
+
+      <label>Do you find it hard to feel deep emotions or empathize with others?<br>
+        <input type="radio" name="q10" value="yes"> Yes
+        <input type="radio" name="q10" value="no"> No
+      </label>
+
       <button type="submit">Submit</button>
       <div id="result"></div>
     </form>
   </div>
 
- <script>
-  document.getElementById('personalityQuiz').addEventListener('submit', function(e) {
-    e.preventDefault();
+  <script>
+    document.getElementById('personalityQuiz').addEventListener('submit', function(e) {
+      e.preventDefault();
+      let score = 0;
+      const answers = new FormData(this);
+      const answeredQuestions = new Set();
 
-    const form = this;
-    const resultDiv = document.getElementById('result');
-    const answers = new FormData(form);
+      for (const [key, value] of answers.entries()) {
+        answeredQuestions.add(key);
+        if (value === 'yes') score++;
+      }
 
-    let score = 0;
-    let answeredQuestions = new Set();
+      const resultDiv = document.getElementById('result');
 
-    for (const [key, value] of answers.entries()) {
-      answeredQuestions.add(key);
-      if (value === 'yes') score++;
-    }
+      if (answeredQuestions.size < 10) {
+        resultDiv.style.color = 'red';
+        resultDiv.innerText = 'Please answer all questions before submitting.';
+        return;
+      }
 
-    if (answeredQuestions.size < 5) {
-      resultDiv.style.color = 'red';
-      resultDiv.innerText = 'Please answer all questions before submitting.';
-      return;
-    }
+      let resultText = '';
+      if (score <= 2) resultText = 'You may lean toward Secure or Avoidant types.';
+      else if (score <= 4) resultText = 'You might align with Co-Narcissist or Codependent traits.';
+      else if (score <= 6) resultText = 'Possibly Anxious or Anxious-Avoidant.';
+      else if (score <= 8) resultText = 'You could relate to BPD, Dark Empath, or similar types.';
+      else resultText = 'Patterns resemble Narcissist or Sociopathic traits.';
 
-    let resultText = '';
-    if (score <= 1) resultText = 'You may lean toward Secure or Avoidant types.';
-    else if (score === 2) resultText = 'You might align with Co-Narcissist or Codependent traits.';
-    else if (score === 3) resultText = 'Possibly Anxious or Anxious-Avoidant.';
-    else if (score === 4) resultText = 'You could relate to BPD, Dark Empath, or similar types.';
-    else resultText = 'Patterns resemble Narcissist or Sociopathic traits.';
-
-    resultDiv.style.color = 'green';
-    resultDiv.innerText = resultText;
-  });
-</script>
-
+      resultDiv.style.color = 'green';
+      resultDiv.innerText = resultText;
+    });
+  </script>
 </body>
 </html>
