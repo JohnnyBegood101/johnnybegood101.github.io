@@ -137,8 +137,14 @@
   </div>
 
   <script>
-    document.getElementById('personalityQuiz').addEventListener('submit', function(e) {
+  document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('personalityQuiz');
+    const resultDiv = document.getElementById('result');
+
+    form.addEventListener('submit', function(e) {
       e.preventDefault();
+      console.log("Form submitted"); // Debugging log
+
       let score = 0;
       const answers = new FormData(this);
       for (const [key, value] of answers.entries()) {
@@ -152,8 +158,11 @@
       else if (score === 4) resultText = 'You could relate to BPD, Dark Empath, or similar types.';
       else resultText = 'Patterns resemble Narcissist or Sociopathic traits.';
 
-      document.getElementById('result').innerText = resultText;
+      resultDiv.innerText = resultText;
     });
-  </script>
+  });
+</script>
+
+
 </body>
 </html>
