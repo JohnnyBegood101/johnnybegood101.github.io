@@ -3,15 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Personality Traits Table</title>
+  <title>World Of Humans</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       background-color: #f2f2f2;
       margin: 0;
-      padding-top: 60px;
+      padding-top: 40px;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+    }
+    h1 {
+      margin-bottom: 40px;
+      font-size: 2.5rem;
+      color: #333;
     }
     .table-container {
       max-width: 90%;
@@ -35,9 +41,18 @@
       color: white;
     }
     tr:nth-child(even){background-color: #f9f9f9;}
+    .quiz-container {
+      margin-top: 60px;
+      max-width: 90%;
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
   </style>
 </head>
 <body>
+  <h1>World Of Humans</h1>
   <div class="table-container">
     <table>
       <thead>
@@ -70,6 +85,38 @@
         <tr><td>Secure (Again)</td><td>Secure</td><td>High</td><td>High</td><td>No</td><td>Stable</td><td>Connection, Growth</td><td>100–115</td><td>N/A</td><td>Stable</td></tr>
       </tbody>
     </table>
+  </div>
+
+  <div class="quiz-container">
+    <h2>Find Your Type</h2>
+    <form>
+      <label>Do you often fear being abandoned?<br>
+        <input type="radio" name="q1"> Yes
+        <input type="radio" name="q1"> No
+      </label><br><br>
+
+      <label>Do you feel a strong need to be needed or liked?<br>
+        <input type="radio" name="q2"> Yes
+        <input type="radio" name="q2"> No
+      </label><br><br>
+
+      <label>Do you find it hard to trust others or open up?<br>
+        <input type="radio" name="q3"> Yes
+        <input type="radio" name="q3"> No
+      </label><br><br>
+
+      <label>Do you reflect on your emotions and behavior regularly?<br>
+        <input type="radio" name="q4"> Yes
+        <input type="radio" name="q4"> No
+      </label><br><br>
+
+      <label>Have others told you that you manipulate or control people emotionally?<br>
+        <input type="radio" name="q5"> Yes
+        <input type="radio" name="q5"> No
+      </label><br><br>
+
+      <button type="submit">Submit</button>
+    </form>
   </div>
 </body>
 </html>
