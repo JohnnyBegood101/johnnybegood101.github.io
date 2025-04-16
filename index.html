@@ -136,33 +136,39 @@
     </form>
   </div>
 
-  <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementById('personalityQuiz');
+ <script>
+  document.getElementById('personalityQuiz').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const form = this;
     const resultDiv = document.getElementById('result');
+    const answers = new FormData(form);
 
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      console.log("Form submitted"); // Debugging log
+    let score = 0;
+    let answeredQuestions = new Set();
 
-      let score = 0;
-      const answers = new FormData(this);
-      for (const [key, value] of answers.entries()) {
-        if (value === 'yes') score++;
-      }
+    for (const [key, value] of answers.entries()) {
+      answeredQuestions.add(key);
+      if (value === 'yes') score++;
+    }
 
-      let resultText = '';
-      if (score <= 1) resultText = 'You may lean toward Secure or Avoidant types.';
-      else if (score === 2) resultText = 'You might align with Co-Narcissist or Codependent traits.';
-      else if (score === 3) resultText = 'Possibly Anxious or Anxious-Avoidant.';
-      else if (score === 4) resultText = 'You could relate to BPD, Dark Empath, or similar types.';
-      else resultText = 'Patterns resemble Narcissist or Sociopathic traits.';
+    if (answeredQuestions.size < 5) {
+      resultDiv.style.color = 'red';
+      resultDiv.innerText = 'Please answer all questions before submitting.';
+      return;
+    }
 
-      resultDiv.innerText = resultText;
-    });
+    let resultText = '';
+    if (score <= 1) resultText = 'You may lean toward Secure or Avoidant types.';
+    else if (score === 2) resultText = 'You might align with Co-Narcissist or Codependent traits.';
+    else if (score === 3) resultText = 'Possibly Anxious or Anxious-Avoidant.';
+    else if (score === 4) resultText = 'You could relate to BPD, Dark Empath, or similar types.';
+    else resultText = 'Patterns resemble Narcissist or Sociopathic traits.';
+
+    resultDiv.style.color = 'green';
+    resultDiv.innerText = resultText;
   });
 </script>
-
 
 </body>
 </html>
