@@ -118,6 +118,33 @@
           { label: "I keep my guard up and trust slowly", map: { "Dismissive-Avoidant": 1, "Dark Empath": 1 } },
           { label: "Trust varies; I can be suspicious and fearful", map: { "Co-Narcissist": 1, Sociopath: 1 } }
         ]
+      },
+      {
+        question: "How do you view rules and boundaries?",
+        options: [
+          { label: "I respect them and understand their importance", map: { Secure: 2 } },
+          { label: "I find them limiting and often test them", map: { Narcissist: 2, Sociopath: 1 } },
+          { label: "I follow them but feel resentful", map: { "Co-Narcissist": 1, Codependent: 1 } },
+          { label: "I struggle with consistency around rules", map: { Bipolar: 1, BPD: 1 } }
+        ]
+      },
+      {
+        question: "When facing criticism, how do you typically react?",
+        options: [
+          { label: "I reflect and consider the feedback", map: { Secure: 2 } },
+          { label: "I feel attacked and react defensively", map: { Narcissist: 2, BPD: 1 } },
+          { label: "I internalize and feel guilt or shame", map: { Codependent: 2, "Co-Narcissist": 1 } },
+          { label: "I detach and ignore it", map: { Psychopath: 2, "Dismissive-Avoidant": 1 } }
+        ]
+      },
+      {
+        question: "What drives your interpersonal relationships the most?",
+        options: [
+          { label: "Mutual growth and trust", map: { Secure: 2 } },
+          { label: "Fear of abandonment or rejection", map: { BPD: 2, "Fearful-Avoidant": 1 } },
+          { label: "Need for control or admiration", map: { Narcissist: 2, Sociopath: 1 } },
+          { label: "Desire to please others and feel needed", map: { Codependent: 2 } }
+        ]
       }
     ];
 
@@ -128,7 +155,7 @@
       div.className = 'question';
       div.innerHTML = `${i + 1}. ${q.question}<br>`;
       q.options.forEach((opt, j) => {
-        div.innerHTML += `<input type="radio" name="q${i}" value="${j}"> ${String.fromCharCode(65 + j)}) ${opt.label}<br>`;
+        div.innerHTML += `<input type="radio" name="q${i}" value="${j}" required> ${String.fromCharCode(65 + j)}) ${opt.label}<br>`;
       });
       quizForm.appendChild(div);
     });
