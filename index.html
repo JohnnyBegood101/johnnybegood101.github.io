@@ -19,13 +19,13 @@
       font-size: 2.5rem;
       color: #333;
     }
-    .table-container, .quiz-container {
+    .table-container {
       max-width: 90%;
+      overflow-x: auto;
       background-color: white;
       padding: 20px;
       border-radius: 10px;
       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      margin-bottom: 60px;
     }
     table {
       border-collapse: collapse;
@@ -41,7 +41,16 @@
       color: white;
     }
     tr:nth-child(even){background-color: #f9f9f9;}
-    .question {
+    .quiz-container {
+      margin-top: 60px;
+      max-width: 90%;
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    form label {
+      display: block;
       margin-bottom: 20px;
     }
     button {
@@ -62,16 +71,38 @@
 <body>
   <h1>World Of Humans</h1>
   <div class="table-container">
-    <!-- existing table remains unchanged -->
-    [TABLE CONTENT REMAINS AS IS]
+    <table>
+      <thead>
+        <tr>
+          <th>Personality Type</th>
+          <th>Attachment Style</th>
+          <th>Empathy</th>
+          <th>Self-Reflection</th>
+          <th>Love Bombing Tendencies</th>
+          <th>Emotional Depth</th>
+          <th>Core Fear or Drive</th>
+          <th>Average IQ (est.)</th>
+          <th>Therapy Type</th>
+          <th>Changeable?</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Secure</td><td>Secure</td><td>High</td><td>High</td><td>None</td><td>Stable</td><td>Connection, Growth</td><td>100–115</td><td>N/A or General Counseling</td><td>Stable</td></tr>
+        <tr><td>Anxious</td><td>Anxious</td><td>High</td><td>Moderate</td><td>Sometimes</td><td>Intense</td><td>Abandonment</td><td>95–110</td><td>CBT, Attachment-based Therapy</td><td>Yes</td></tr>
+        <tr><td>Avoidant</td><td>Dismissive-Avoidant</td><td>Low to Moderate</td><td>Low to Moderate</td><td>Rare</td><td>Suppressed</td><td>Fear of Dependence</td><td>100–115</td><td>CBT, Emotionally Focused Therapy</td><td>Yes</td></tr>
+        <tr><td>Anxious-Avoidant</td><td>Fearful-Avoidant</td><td>Variable</td><td>Low to Moderate</td><td>Yes</td><td>Volatile</td><td>Craving & Fear of Intimacy</td><td>90–105</td><td>DBT, Somatic Therapy</td><td>Yes</td></tr>
+        <tr><td>Codependent</td><td>Anxious</td><td>High</td><td>Moderate</td><td>Sometimes</td><td>Intense</td><td>Being Needed, Abandonment</td><td>90–110</td><td>Inner Child Work, Boundaries</td><td>Yes</td></tr>
+        <tr><td>Co-Narcissist</td><td>Anxious</td><td>High</td><td>Moderate</td><td>Sometimes</td><td>Suppressed</td><td>Being Liked/Validated</td><td>95–115</td><td>Self-Worth Therapy</td><td>Yes</td></tr>
+        <tr><td>Narcissist (NPD)</td><td>Dismissive/Avoidant</td><td>Low</td><td>Low</td><td>Yes</td><td>Shallow</td><td>Validation, Ego, Control</td><td>105–120</td><td>Psychodynamic, Schema Therapy</td><td>Difficult</td></tr>
+        <tr><td>Dark Empath</td><td>Variable</td><td>High (Cognitive)</td><td>Moderate</td><td>Yes</td><td>Moderate</td><td>Control via Connection</td><td>110–125</td><td>Shadow Work, Trauma-informed</td><td>Possible</td></tr>
+        <tr><td>Sociopath (ASPD)</td><td>None</td><td>Low</td><td>Low</td><td>Yes</td><td>Blunted</td><td>Power, Reward</td><td>95–110</td><td>CBT, Forensic Therapy</td><td>Rare</td></tr>
+        <tr><td>Psychopath</td><td>None</td><td>Very Low</td><td>Very Low</td><td>Yes</td><td>Shallow</td><td>Dominance, Stimulation</td><td>110–130+</td><td>Intensive Clinical Programs</td><td>Rare</td></tr>
+        <tr><td>Borderline (BPD)</td><td>Fearful/Anxious</td><td>High (Emotional)</td><td>Low-Moderate</td><td>Yes</td><td>Extreme</td><td>Abandonment, Identity</td><td>90–110</td><td>DBT, MBT, Schema Therapy</td><td>Yes (with effort)</td></tr>
+        <tr><td>Bipolar (for comparison)</td><td>Variable</td><td>Variable</td><td>Moderate</td><td>Sometimes</td><td>Extreme Swings</td><td>Mood Regulation</td><td>95–120</td><td>Medication, CBT</td><td>Manageable</td></tr>
+        <tr><td>Secure (Again)</td><td>Secure</td><td>High</td><td>High</td><td>No</td><td>Stable</td><td>Connection, Growth</td><td>100–115</td><td>N/A</td><td>Stable</td></tr>
+      </tbody>
+    </table>
   </div>
-
-  <div class="quiz-container">
-    <h2>Personality Type Quiz</h2>
-    <form id="quizForm"></form>
-    <div id="result"></div>
-  </div>
-
   <script>
     const quizQuestions = [
       {
