@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -105,10 +104,10 @@
         <tr><td>Attachment</td><td>Anxious-Preoccupied</td><td>Craves intimacy but fears abandonment</td><td>Clingy, insecure, sensitive</td><td>95-105</td><td>Moderate</td><td>Yes</td><td>CBT, Psychodynamic</td><td>Yes</td><td>Often stems from childhood</td></tr>
         <tr><td>Attachment</td><td>Dismissive-Avoidant</td><td>Prioritizes independence and avoids closeness</td><td>Emotionally distant, self-reliant</td><td>100-115</td><td>Low</td><td>Yes</td><td>Schema Therapy</td><td>Yes</td><td>Can mask insecurity</td></tr>
         <tr><td>Attachment</td><td>Fearful-Avoidant</td><td>Wants closeness but fears getting hurt</td><td>Mixed signals, distrustful, emotional conflict</td><td>95-105</td><td>Low</td><td>Yes</td><td>Trauma Therapy, EMDR</td><td>Yes</td><td>Linked to trauma</td></tr>
-        <tr><td>Personality</td><td>Narcissistic</td><td>Inflated self-importance and need for admiration</td><td>Manipulative, lacks empathy</td><td>105-115</td><td>Low</td><td>Yes</td><td>Psychodynamic, CBT</td><td>Difficult</td><td>Can fake empathy</td></tr>
+        <tr><td>Personality</td><td>Narcissistic</td><td>Inflated self-importance and need for admiration</td><td>Manipulative, lacks empathy</td><td>105-120</td><td>Low</td><td>Yes</td><td>Psychodynamic, CBT</td><td>Difficult</td><td>Can fake empathy</td></tr>
         <tr><td>Personality</td><td>Borderline (BPD)</td><td>Instability in relationships and self-image</td><td>Impulsive, intense emotions</td><td>90-105</td><td>Low to Moderate</td><td>Yes</td><td>DBT</td><td>Yes (with effort)</td><td>Emotion regulation needed</td></tr>
-        <tr><td>Personality</td><td>Antisocial (Sociopathy)</td><td>Disregard for others, rules, and norms</td><td>Deceitful, aggressive</td><td>85-100</td><td>Low</td><td>Yes</td><td>CBT, Behavior Management</td><td>Rarely</td><td>Risk to others</td></tr>
-        <tr><td>Personality</td><td>Psychopathy</td><td>Extreme antisocial behavior, emotional detachment</td><td>Superficial charm, unemotional</td><td>110-130</td><td>Very Low</td><td>Rarely</td><td>None proven effective</td><td>No</td><td>Highly manipulative</td></tr>
+        <tr><td>Personality</td><td>Antisocial (Sociopathy)</td><td>Disregard for others, rules, and norms</td><td>Deceitful, aggressive</td><td>85-110</td><td>Low</td><td>Yes</td><td>CBT, Behavior Management</td><td>Rarely</td><td>Risk to others</td></tr>
+        <tr><td>Personality</td><td>Psychopathy</td><td>Extreme antisocial behavior, emotional detachment</td><td>Superficial charm, unemotional</td><td>105-130</td><td>Very Low</td><td>Rarely</td><td>None proven effective</td><td>No</td><td>Highly manipulative</td></tr>
         <tr><td>Personality</td><td>Dark Empath</td><td>Uses empathy manipulatively</td><td>Socially skilled, controlling</td><td>110-125</td><td>Low</td><td>Maybe</td><td>Self-awareness therapy</td><td>Difficult</td><td>Blends empathy & manipulation</td></tr>
         <tr><td>Other</td><td>Co-narcissist</td><td>Over-adapts to narcissists</td><td>Self-sacrificing, appeasing</td><td>95-105</td><td>High</td><td>Yes</td><td>Self-esteem building</td><td>Yes</td><td>May attract narcissists</td></tr>
         <tr><td>Other</td><td>Codependent</td><td>Overly reliant on others for worth</td><td>People-pleasing, low boundaries</td><td>90-105</td><td>Moderate</td><td>Yes</td><td>CBT, Family Therapy</td><td>Yes</td><td>Often cycles from upbringing</td></tr>
@@ -121,12 +120,34 @@
   <div class="quiz-wrapper">
     <div class="quiz-container">
       <h2>Attachment Style Test</h2>
-      <form id="attachmentForm"></form>
+      <form id="attachmentForm">
+        <div class="question">1. Do you often feel the need for constant reassurance from your partner?<br><input type="radio" name="attachment1"> Yes <input type="radio" name="attachment1"> No</div>
+        <div class="question">2. Do you find it hard to trust people easily?<br><input type="radio" name="attachment2"> Yes <input type="radio" name="attachment2"> No</div>
+        <div class="question">3. Do you enjoy close emotional bonds with others?<br><input type="radio" name="attachment3"> Yes <input type="radio" name="attachment3"> No</div>
+        <div class="question">4. Do you tend to push people away when they get too close?<br><input type="radio" name="attachment4"> Yes <input type="radio" name="attachment4"> No</div>
+        <div class="question">5. Are you afraid of being abandoned in relationships?<br><input type="radio" name="attachment5"> Yes <input type="radio" name="attachment5"> No</div>
+        <div class="question">6. Do you often feel smothered in relationships?<br><input type="radio" name="attachment6"> Yes <input type="radio" name="attachment6"> No</div>
+        <div class="question">7. Do you feel safe expressing your needs to your partner?<br><input type="radio" name="attachment7"> Yes <input type="radio" name="attachment7"> No</div>
+        <div class="question">8. Do you crave intimacy but fear being hurt?<br><input type="radio" name="attachment8"> Yes <input type="radio" name="attachment8"> No</div>
+        <div class="question">9. Do you feel anxious when someone doesn't reply right away?<br><input type="radio" name="attachment9"> Yes <input type="radio" name="attachment9"> No</div>
+        <div class="question">10. Do you prefer being emotionally independent?<br><input type="radio" name="attachment10"> Yes <input type="radio" name="attachment10"> No</div>
+      </form>
       <div id="attachmentResult"></div>
     </div>
     <div class="quiz-container">
       <h2>Personality Trait/Disorder Test</h2>
-      <form id="personalityForm"></form>
+      <form id="personalityForm">
+        <div class="question">1. Do you often feel a strong need for admiration?<br><input type="radio" name="personality1"> Yes <input type="radio" name="personality1"> No</div>
+        <div class="question">2. Do you experience intense mood swings?<br><input type="radio" name="personality2"> Yes <input type="radio" name="personality2"> No</div>
+        <div class="question">3. Do you find it difficult to empathize with others?<br><input type="radio" name="personality3"> Yes <input type="radio" name="personality3"> No</div>
+        <div class="question">4. Do you often manipulate people to get what you want?<br><input type="radio" name="personality4"> Yes <input type="radio" name="personality4"> No</div>
+        <div class="question">5. Do you often fear being alone?<br><input type="radio" name="personality5"> Yes <input type="radio" name="personality5"> No</div>
+        <div class="question">6. Do you believe rules don’t apply to you?<br><input type="radio" name="personality6"> Yes <input type="radio" name="personality6"> No</div>
+        <div class="question">7. Do you act impulsively without thinking about consequences?<br><input type="radio" name="personality7"> Yes <input type="radio" name="personality7"> No</div>
+        <div class="question">8. Do you shift quickly from feeling great to feeling awful?<br><input type="radio" name="personality8"> Yes <input type="radio" name="personality8"> No</div>
+        <div class="question">9. Do you get jealous easily?<br><input type="radio" name="personality9"> Yes <input type="radio" name="personality9"> No</div>
+        <div class="question">10. Do you try to control others through emotional tactics?<br><input type="radio" name="personality10"> Yes <input type="radio" name="personality10"> No</div>
+      </form>
       <div id="personalityResult"></div>
     </div>
   </div>
@@ -137,8 +158,7 @@
     function downloadResults() {
       const attachmentText = document.getElementById('attachmentResult').innerText;
       const personalityText = document.getElementById('personalityResult').innerText;
-      const content = `Attachment Result: ${attachmentText}
-Personality Result: ${personalityText}`;
+      const content = `Attachment Result: ${attachmentText}\nPersonality Result: ${personalityText}`;
       const blob = new Blob([content], { type: 'text/plain' });
       const link = document.createElement('a');
       link.href = URL.createObjectURL(blob);
