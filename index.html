@@ -64,7 +64,7 @@
       background-color: #f9f9f9;
     }
     .question {
-      margin-bottom: 20px;
+      margin-bottom: 10px;
     }
     button {
       background-color: #4CAF50;
@@ -73,6 +73,7 @@
       padding: 10px 20px;
       border-radius: 5px;
       cursor: pointer;
+      margin-top: 10px;
     }
     #attachmentResult, #personalityResult {
       margin-top: 20px;
@@ -87,16 +88,8 @@
     <table>
       <thead>
         <tr>
-          <th>Type</th>
-          <th>Name</th>
-          <th>Description</th>
-          <th>Common Traits</th>
-          <th>Average IQ</th>
-          <th>Self-Reflection</th>
-          <th>Needs Therapy</th>
-          <th>Therapy Type</th>
-          <th>Can It Change?</th>
-          <th>Notes</th>
+          <th>Type</th><th>Name</th><th>Description</th><th>Common Traits</th><th>Average IQ</th>
+          <th>Self-Reflection</th><th>Needs Therapy</th><th>Therapy Type</th><th>Can It Change?</th><th>Notes</th>
         </tr>
       </thead>
       <tbody>
@@ -121,44 +114,72 @@
     <div class="quiz-container">
       <h2>Attachment Style Test</h2>
       <form id="attachmentForm">
-        <div class="question">1. Do you often feel the need for constant reassurance from your partner?<br><input type="radio" name="attachment1"> Yes <input type="radio" name="attachment1"> No</div>
-        <div class="question">2. Do you find it hard to trust people easily?<br><input type="radio" name="attachment2"> Yes <input type="radio" name="attachment2"> No</div>
-        <div class="question">3. Do you enjoy close emotional bonds with others?<br><input type="radio" name="attachment3"> Yes <input type="radio" name="attachment3"> No</div>
-        <div class="question">4. Do you tend to push people away when they get too close?<br><input type="radio" name="attachment4"> Yes <input type="radio" name="attachment4"> No</div>
-        <div class="question">5. Are you afraid of being abandoned in relationships?<br><input type="radio" name="attachment5"> Yes <input type="radio" name="attachment5"> No</div>
-        <div class="question">6. Do you often feel smothered in relationships?<br><input type="radio" name="attachment6"> Yes <input type="radio" name="attachment6"> No</div>
-        <div class="question">7. Do you feel safe expressing your needs to your partner?<br><input type="radio" name="attachment7"> Yes <input type="radio" name="attachment7"> No</div>
-        <div class="question">8. Do you crave intimacy but fear being hurt?<br><input type="radio" name="attachment8"> Yes <input type="radio" name="attachment8"> No</div>
-        <div class="question">9. Do you feel anxious when someone doesn't reply right away?<br><input type="radio" name="attachment9"> Yes <input type="radio" name="attachment9"> No</div>
-        <div class="question">10. Do you prefer being emotionally independent?<br><input type="radio" name="attachment10"> Yes <input type="radio" name="attachment10"> No</div>
+        <div class="question">1. I often worry about being abandoned.<br><input type="radio" name="a1" value="anxious"> Yes <input type="radio" name="a1" value="secure"> No</div>
+        <div class="question">2. I find it hard to trust people completely.<br><input type="radio" name="a2" value="avoidant"> Yes <input type="radio" name="a2" value="secure"> No</div>
+        <div class="question">3. I enjoy being close to others and feel comfortable depending on them.<br><input type="radio" name="a3" value="secure"> Yes <input type="radio" name="a3" value="avoidant"> No</div>
+        <div class="question">4. I feel uncomfortable when others get too close.<br><input type="radio" name="a4" value="avoidant"> Yes <input type="radio" name="a4" value="secure"> No</div>
+        <div class="question">5. I worry that others don’t value me as much as I value them.<br><input type="radio" name="a5" value="anxious"> Yes <input type="radio" name="a5" value="secure"> No</div>
+        <div class="question">6. I avoid conflict to keep people close.<br><input type="radio" name="a6" value="anxious"> Yes <input type="radio" name="a6" value="secure"> No</div>
+        <div class="question">7. I am afraid of getting too close and then being hurt.<br><input type="radio" name="a7" value="fearful"> Yes <input type="radio" name="a7" value="secure"> No</div>
+        <div class="question">8. I prefer not to rely on others or let them rely on me.<br><input type="radio" name="a8" value="avoidant"> Yes <input type="radio" name="a8" value="secure"> No</div>
+        <div class="question">9. I crave closeness and intimacy constantly.<br><input type="radio" name="a9" value="anxious"> Yes <input type="radio" name="a9" value="secure"> No</div>
+        <div class="question">10. I feel both a strong desire and fear of intimacy.<br><input type="radio" name="a10" value="fearful"> Yes <input type="radio" name="a10" value="secure"> No</div>
+        <button type="button" onclick="calculateAttachment()">Submit</button>
       </form>
       <div id="attachmentResult"></div>
     </div>
+
     <div class="quiz-container">
       <h2>Personality Trait/Disorder Test</h2>
       <form id="personalityForm">
-        <div class="question">1. Do you often feel a strong need for admiration?<br><input type="radio" name="personality1"> Yes <input type="radio" name="personality1"> No</div>
-        <div class="question">2. Do you experience intense mood swings?<br><input type="radio" name="personality2"> Yes <input type="radio" name="personality2"> No</div>
-        <div class="question">3. Do you find it difficult to empathize with others?<br><input type="radio" name="personality3"> Yes <input type="radio" name="personality3"> No</div>
-        <div class="question">4. Do you often manipulate people to get what you want?<br><input type="radio" name="personality4"> Yes <input type="radio" name="personality4"> No</div>
-        <div class="question">5. Do you often fear being alone?<br><input type="radio" name="personality5"> Yes <input type="radio" name="personality5"> No</div>
-        <div class="question">6. Do you believe rules don’t apply to you?<br><input type="radio" name="personality6"> Yes <input type="radio" name="personality6"> No</div>
-        <div class="question">7. Do you act impulsively without thinking about consequences?<br><input type="radio" name="personality7"> Yes <input type="radio" name="personality7"> No</div>
-        <div class="question">8. Do you shift quickly from feeling great to feeling awful?<br><input type="radio" name="personality8"> Yes <input type="radio" name="personality8"> No</div>
-        <div class="question">9. Do you get jealous easily?<br><input type="radio" name="personality9"> Yes <input type="radio" name="personality9"> No</div>
-        <div class="question">10. Do you try to control others through emotional tactics?<br><input type="radio" name="personality10"> Yes <input type="radio" name="personality10"> No</div>
+        <div class="question">1. I often feel superior to others.<br><input type="radio" name="p1" value="narcissistic"> Yes <input type="radio" name="p1" value="other"> No</div>
+        <div class="question">2. My emotions feel out of control often.<br><input type="radio" name="p2" value="bpd"> Yes <input type="radio" name="p2" value="other"> No</div>
+        <div class="question">3. I manipulate others to get what I want.<br><input type="radio" name="p3" value="dark"> Yes <input type="radio" name="p3" value="other"> No</div>
+        <div class="question">4. I have little remorse for wrongdoings.<br><input type="radio" name="p4" value="antisocial"> Yes <input type="radio" name="p4" value="other"> No</div>
+        <div class="question">5. I often depend on others to feel good about myself.<br><input type="radio" name="p5" value="codependent"> Yes <input type="radio" name="p5" value="other"> No</div>
+        <div class="question">6. I find myself always giving in relationships.<br><input type="radio" name="p6" value="co-narcissist"> Yes <input type="radio" name="p6" value="other"> No</div>
+        <div class="question">7. My mood swings rapidly between extremes.<br><input type="radio" name="p7" value="bipolar"> Yes <input type="radio" name="p7" value="other"> No</div>
+        <div class="question">8. I sometimes charm people to get my way.<br><input type="radio" name="p8" value="psychopath"> Yes <input type="radio" name="p8" value="other"> No</div>
+        <div class="question">9. I find it hard to form lasting emotional connections.<br><input type="radio" name="p9" value="dismissive"> Yes <input type="radio" name="p9" value="other"> No</div>
+        <div class="question">10. I feel like I switch between extremes of independence and clinginess.<br><input type="radio" name="p10" value="anxious-avoidant"> Yes <input type="radio" name="p10" value="other"> No</div>
+        <button type="button" onclick="calculatePersonality()">Submit</button>
       </form>
       <div id="personalityResult"></div>
     </div>
   </div>
 
-  <button onclick="downloadResults()" style="margin-top: 40px;">Download Results</button>
+  <button onclick="downloadResults()" id="downloadBtn" style="margin-top: 40px; display:none;">Download Results</button>
 
   <script>
+    let attachmentOutcome = '';
+    let personalityOutcome = '';
+
+    function calculateAttachment() {
+      const answers = [...document.querySelectorAll('#attachmentForm input:checked')].map(i => i.value);
+      const score = answers.reduce((acc, val) => { acc[val] = (acc[val] || 0) + 1; return acc; }, {});
+      const result = Object.entries(score).sort((a,b) => b[1]-a[1])[0][0];
+      attachmentOutcome = result;
+      document.getElementById('attachmentResult').innerText = `Your Attachment Style: ${result.charAt(0).toUpperCase() + result.slice(1)}`;
+      showDownload();
+    }
+
+    function calculatePersonality() {
+      const answers = [...document.querySelectorAll('#personalityForm input:checked')].map(i => i.value);
+      const score = answers.reduce((acc, val) => { acc[val] = (acc[val] || 0) + 1; return acc; }, {});
+      const result = Object.entries(score).sort((a,b) => b[1]-a[1])[0][0];
+      personalityOutcome = result;
+      document.getElementById('personalityResult').innerText = `Most Likely Personality Trait: ${result.charAt(0).toUpperCase() + result.slice(1)}`;
+      showDownload();
+    }
+
+    function showDownload() {
+      if (attachmentOutcome && personalityOutcome) {
+        document.getElementById('downloadBtn').style.display = 'inline-block';
+      }
+    }
+
     function downloadResults() {
-      const attachmentText = document.getElementById('attachmentResult').innerText;
-      const personalityText = document.getElementById('personalityResult').innerText;
-      const content = `Attachment Result: ${attachmentText}\nPersonality Result: ${personalityText}`;
+      const content = `Attachment Style Result: ${attachmentOutcome}\nPersonality Trait Result: ${personalityOutcome}`;
       const blob = new Blob([content], { type: 'text/plain' });
       const link = document.createElement('a');
       link.href = URL.createObjectURL(blob);
