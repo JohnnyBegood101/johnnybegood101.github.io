@@ -6,80 +6,17 @@
   <title>World Of Humans</title>
   <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
   <style>
-    body {
-      font-family: 'Rubik', sans-serif;
-      background-color: #f2f2f2;
-      margin: 0;
-      padding-top: 40px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    h1, h2 {
-      text-align: center;
-    }
-    h1 {
-      margin-bottom: 40px;
-      font-size: 2.5rem;
-      color: #333;
-    }
-    .table-container {
-      max-width: 90%;
-      background-color: white;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      margin-bottom: 60px;
-      overflow-x: auto;
-    }
-    .quiz-wrapper {
-      display: flex;
-      gap: 40px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    .quiz-container {
-      background-color: white;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      max-width: 500px;
-      flex: 1;
-    }
-    table {
-      border-collapse: collapse;
-      width: 100%;
-      font-size: 0.85rem;
-    }
-    th, td {
-      border: 1px solid #ddd;
-      padding: 8px;
-      text-align: center;
-    }
-    th {
-      background-color: #4CAF50;
-      color: white;
-    }
-    tr:nth-child(even) {
-      background-color: #f9f9f9;
-    }
-    .question {
-      margin-bottom: 10px;
-    }
-    button {
-      background-color: #4CAF50;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 5px;
-      cursor: pointer;
-      margin-top: 10px;
-    }
-    #attachmentResult, #personalityResult {
-      margin-top: 20px;
-      font-weight: bold;
-      font-size: 1.2rem;
-    }
+    body {font-family:'Rubik',sans-serif;background:#f2f2f2;margin:0;padding-top:20px;display:flex;flex-direction:column;align-items:center;}
+    h1,h2{text-align:center;} h1{margin-bottom:20px;font-size:2.5rem;color:#333;}
+    .table-container{width:90%;background:#fff;padding:20px;border-radius:10px;box-shadow:0 2px 10px rgba(0,0,0,0.1);margin-bottom:40px;overflow-x:auto;}
+    .quiz-wrapper{display:flex;gap:40px;flex-wrap:wrap;justify-content:center;margin-bottom:40px;}
+    .quiz-container{background:#fff;padding:20px;border-radius:10px;box-shadow:0 2px 10px rgba(0,0,0,0.1);max-width:500px;flex:1;}
+    table{border-collapse:collapse;width:100%;font-size:0.75rem;} th,td{border:1px solid #ddd;padding:8px;text-align:center;} th{background:#4CAF50;color:white;} tr:nth-child(even){background:#f9f9f9;}
+    .question{margin-bottom:15px;} .slider-label{display:block;margin-bottom:5px;} input[type=range]{width:100%;}
+    button{background:#4CAF50;color:white;border:none;padding:10px 20px;border-radius:5px;cursor:pointer;margin:5px;}
+    #attachmentResult,#personalityResult{margin-top:20px;font-weight:bold;font-size:1.1rem;white-space:pre-line;}
+    .bottom-bar{display:flex;flex-direction:column;align-items:center;gap:10px;margin-bottom:40px;}
+    .small-coffee-button img{height:40px;}
   </style>
 </head>
 <body>
@@ -87,107 +24,143 @@
   <div class="table-container">
     <table>
       <thead>
-        <tr>
-          <th>Type</th><th>Name</th><th>Description</th><th>Common Traits</th><th>Average IQ</th>
-          <th>Self-Reflection</th><th>Needs Therapy</th><th>Therapy Type</th><th>Can It Change?</th><th>Notes</th>
-        </tr>
+        <tr><th>Type</th><th>Name</th><th>Description</th><th>Common Traits</th><th>Average IQ</th><th>Self-Reflection</th><th>Needs Therapy</th><th>Therapy Type</th><th>Can It Change?</th><th>Core Fear/Motivation</th><th>Stress Behavior</th><th>Empathy Level</th><th>Overlap Risks</th><th>Notes</th></tr>
       </thead>
-      <tbody>
-        <tr><td>Attachment</td><td>Secure</td><td>Comfortable with intimacy and autonomy</td><td>Trusting, empathetic, stable</td><td>100-110</td><td>High</td><td>No</td><td>N/A</td><td>Yes</td><td>Healthy baseline</td></tr>
-        <tr><td>Attachment</td><td>Anxious-Preoccupied</td><td>Craves intimacy but fears abandonment</td><td>Clingy, insecure, sensitive</td><td>95-105</td><td>Moderate</td><td>Yes</td><td>CBT, Psychodynamic</td><td>Yes</td><td>Often stems from childhood</td></tr>
-        <tr><td>Attachment</td><td>Dismissive-Avoidant</td><td>Prioritizes independence and avoids closeness</td><td>Emotionally distant, self-reliant</td><td>100-115</td><td>Low</td><td>Yes</td><td>Schema Therapy</td><td>Yes</td><td>Can mask insecurity</td></tr>
-        <tr><td>Attachment</td><td>Fearful-Avoidant</td><td>Wants closeness but fears getting hurt</td><td>Mixed signals, distrustful, emotional conflict</td><td>95-105</td><td>Low</td><td>Yes</td><td>Trauma Therapy, EMDR</td><td>Yes</td><td>Linked to trauma</td></tr>
-        <tr><td>Personality</td><td>Narcissistic</td><td>Inflated self-importance and need for admiration</td><td>Manipulative, lacks empathy</td><td>105-120</td><td>Low</td><td>Yes</td><td>Psychodynamic, CBT</td><td>Difficult</td><td>Can fake empathy</td></tr>
-        <tr><td>Personality</td><td>Borderline (BPD)</td><td>Instability in relationships and self-image</td><td>Impulsive, intense emotions</td><td>90-105</td><td>Low to Moderate</td><td>Yes</td><td>DBT</td><td>Yes (with effort)</td><td>Emotion regulation needed</td></tr>
-        <tr><td>Personality</td><td>Antisocial (Sociopathy)</td><td>Disregard for others, rules, and norms</td><td>Deceitful, aggressive</td><td>85-110</td><td>Low</td><td>Yes</td><td>CBT, Behavior Management</td><td>Rarely</td><td>Risk to others</td></tr>
-        <tr><td>Personality</td><td>Psychopathy</td><td>Extreme antisocial behavior, emotional detachment</td><td>Superficial charm, unemotional</td><td>105-130</td><td>Very Low</td><td>Rarely</td><td>None proven effective</td><td>No</td><td>Highly manipulative</td></tr>
-        <tr><td>Personality</td><td>Dark Empath</td><td>Uses empathy manipulatively</td><td>Socially skilled, controlling</td><td>110-125</td><td>Low</td><td>Maybe</td><td>Self-awareness therapy</td><td>Difficult</td><td>Blends empathy & manipulation</td></tr>
-        <tr><td>Other</td><td>Co-narcissist</td><td>Over-adapts to narcissists</td><td>Self-sacrificing, appeasing</td><td>95-105</td><td>High</td><td>Yes</td><td>Self-esteem building</td><td>Yes</td><td>May attract narcissists</td></tr>
-        <tr><td>Other</td><td>Codependent</td><td>Overly reliant on others for worth</td><td>People-pleasing, low boundaries</td><td>90-105</td><td>Moderate</td><td>Yes</td><td>CBT, Family Therapy</td><td>Yes</td><td>Often cycles from upbringing</td></tr>
-        <tr><td>Other</td><td>Anxious-Avoidant</td><td>Desires connection, avoids vulnerability</td><td>Hot-cold dynamic, fear of rejection</td><td>95-110</td><td>Low</td><td>Yes</td><td>Attachment-Based Therapy</td><td>Yes</td><td>Often confused identity</td></tr>
-        <tr><td>Other</td><td>Bipolar</td><td>Mood swings between manic and depressive states</td><td>Impulsivity, high energy, withdrawal</td><td>90-110</td><td>Moderate</td><td>Yes</td><td>Medication + CBT</td><td>Yes (Managed)</td><td>Biological and emotional</td></tr>
+     <tbody>
+        <tr><td>Attachment</td><td>Secure</td><td>Comfortable with intimacy and autonomy</td><td>Trusting, empathetic, stable, resilient, open</td><td>100-110</td><td>High</td><td>No</td><td>N/A</td><td>Yes</td><td>Connection</td><td>Communicates</td><td>High</td><td>Low</td><td>Healthy baseline</td></tr>
+        <tr><td>Attachment</td><td>Anxious-Preoccupied</td><td>Craves intimacy but fears abandonment</td><td>Clingy, insecure, sensitive, worried, dependent</td><td>95-105</td><td>Moderate</td><td>Yes</td><td>CBT, Psychodynamic</td><td>Yes</td><td>Abandonment</td><td>Seeks reassurance</td><td>Medium</td><td>BPD</td><td>Often rooted in childhood</td></tr>
+        <tr><td>Attachment</td><td>Dismissive-Avoidant</td><td>Avoids closeness, prioritizes independence</td><td>Detached, self-reliant, aloof, private, logical</td><td>100-115</td><td>Low</td><td>Yes</td><td>Schema Therapy</td><td>Yes</td><td>Dependency</td><td>Withdraws</td><td>Low</td><td>NPD</td><td>Masks insecurity</td></tr>
+        <tr><td>Attachment</td><td>Fearful-Avoidant</td><td>Desires closeness but fears it</td><td>Mixed signals, distrustful, ambivalent, guarded, shame</td><td>95-105</td><td>Low</td><td>Yes</td><td>Trauma Therapy</td><td>Yes</td><td>Rejection</td><td>Push-pull</td><td>Low</td><td>BPD, PTSD</td><td>Linked to trauma</td></tr>
+        <tr><td>Personality</td><td>Narcissistic</td><td>Inflated self-importance</td><td>Grandiose, entitled, charming, manipulative, dismissive</td><td>105-115</td><td>Low</td><td>Yes</td><td>CBT, Psychodynamic</td><td>Difficult</td><td>Ego loss</td><td>Blame others</td><td>Low</td><td>BPD, ASPD</td><td>Often masked</td></tr>
+        <tr><td>Personality</td><td>Borderline (BPD)</td><td>Emotional instability</td><td>Impulsive, intense emotions, reactive, moody, unstable</td><td>90-105</td><td>Moderate</td><td>Yes</td><td>DBT</td><td>With effort</td><td>Abandonment</td><td>Self-harm, anger</td><td>Variable</td><td>Misdiagnosed bipolar</td><td>Emotion regulation needed</td></tr>
+        <tr><td>Personality</td><td>Antisocial (ASPD)</td><td>Disregard for others & rules</td><td>Deceitful, aggressive, reckless, cold, impulsive</td><td>85-110</td><td>Low</td><td>Yes</td><td>CBT</td><td>Rarely</td><td>Power/control</td><td>Violence</td><td>Very Low</td><td>Psychopathy, NPD</td><td>Risk to others</td></tr>
+        <tr><td>Personality</td><td>Psychopathy</td><td>Extreme antisocial behavior & detachment</td><td>Superficial charm, unemotional, calculated, cruel, detached</td><td>110-130</td><td>Very Low</td><td>Rarely</td><td>None effective</td><td>No</td><td>Control/domination</td><td>Cold, calculated</td><td>Very Low</td><td>ASPD</td><td>Highly manipulative</td></tr>
+        <tr><td>Personality</td><td>Codependent</td><td>Overly reliant on others for worth</td><td>People-pleasing, low boundaries, insecure, reactive, compliant</td><td>90-105</td><td>Moderate</td><td>Yes</td><td>Family Therapy, CBT</td><td>Yes</td><td>Fear of abandonment</td><td>Over-involved</td><td>Moderate</td><td>Co-narcissist</td><td>Cycles from upbringing</td></tr>
+        <tr><td>Personality</td><td>Bipolar</td><td>Mood swings between manic & depressive states</td><td>Impulsivity, energy shifts, highs/lows, erratic, mood-driven</td><td>95-110</td><td>Moderate</td><td>Yes</td><td>Medication + CBT</td><td>Manageable</td><td>Biological imbalance</td><td>Mania or shutdown</td><td>Normal</td><td>Misdiagnosed BPD</td><td>Emotional & chemical</td></tr>
+        <tr><td>Personality</td><td>Histrionic</td><td>Excessive attention-seeking</td><td>Dramatic, flirtatious, emotional, approval-seeking, easily influenced</td><td>100-110</td><td>Low</td><td>Yes</td><td>Psychodynamic</td><td>Yes</td><td>Rejection</td><td>Overreact</td><td>Medium</td><td>BPD, Narcissistic</td><td>Emotion-driven</td></tr>
+        <tr><td>Personality</td><td>Paranoid</td><td>Deep distrust of others</td><td>Suspicious, guarded, defensive, cynical, hypervigilant</td><td>105-115</td><td>Low</td><td>Yes</td><td>Cognitive Therapy</td><td>Difficult</td><td>Betrayal</td><td>Withdraws</td><td>Low</td><td>Schizoid, ASPD</td><td>Reality testing needed</td></tr>
+        <tr><td>Personality</td><td>Dependent</td><td>Submissive, clingy behavior</td><td>Fear of abandonment, indecisive, passive, seeks reassurance, avoids conflict</td><td>95-105</td><td>Moderate</td><td>Yes</td><td>CBT</td><td>Yes</td><td>Rejection</td><td>Cling</td><td>Medium</td><td>Anxious attachment</td><td>Low autonomy</td></tr>
+        <tr><td>Personality</td><td>Schizoid</td><td>Detached, limited emotion</td><td>Introverted, solitary, flat affect, indifferent, withdrawn</td><td>100-110</td><td>Low</td><td>Sometimes</td><td>Talk Therapy</td><td>Possible</td><td>Invasion</td><td>Withdraws</td><td>Low</td><td>Autism spectrum</td><td>Often misunderstood</td></tr>
+        <tr><td>Personality</td><td>Obsessive-Compulsive (OCPD)</td><td>Order and control obsession</td><td>Perfectionistic, rigid, work-focused, critical, rule-bound</td><td>110-120</td><td>Moderate</td><td>Yes</td><td>CBT</td><td>Yes</td><td>Loss of control</td><td>Overcontrol</td><td>Medium</td><td>Anxiety disorders</td><td>Not OCD</td></tr>
+        <tr><td>Personality</td><td>Dark Empath</td><td>Uses empathy manipulatively</td><td>Charming, intuitive, controlling, strategic, deceptive</td><td>110-125</td><td>Low</td><td>Maybe</td><td>Self-awareness Therapy</td><td>Difficult</td><td>Influence</td><td>Charm then exploit</td><td>Medium</td><td>Narcissistic</td><td>Blends empathy & manipulation</td></tr>
       </tbody>
     </table>
   </div>
 
   <div class="quiz-wrapper">
     <div class="quiz-container">
-      <h2>Attachment Style Test</h2>
-      <form id="attachmentForm">
-        <div class="question">1. I often worry about being abandoned.<br><input type="radio" name="a1" value="anxious"> Yes <input type="radio" name="a1" value="secure"> No</div>
-        <div class="question">2. I find it hard to trust people completely.<br><input type="radio" name="a2" value="avoidant"> Yes <input type="radio" name="a2" value="secure"> No</div>
-        <div class="question">3. I enjoy being close to others and feel comfortable depending on them.<br><input type="radio" name="a3" value="secure"> Yes <input type="radio" name="a3" value="avoidant"> No</div>
-        <div class="question">4. I feel uncomfortable when others get too close.<br><input type="radio" name="a4" value="avoidant"> Yes <input type="radio" name="a4" value="secure"> No</div>
-        <div class="question">5. I worry that others don’t value me as much as I value them.<br><input type="radio" name="a5" value="anxious"> Yes <input type="radio" name="a5" value="secure"> No</div>
-        <div class="question">6. I avoid conflict to keep people close.<br><input type="radio" name="a6" value="anxious"> Yes <input type="radio" name="a6" value="secure"> No</div>
-        <div class="question">7. I am afraid of getting too close and then being hurt.<br><input type="radio" name="a7" value="fearful"> Yes <input type="radio" name="a7" value="secure"> No</div>
-        <div class="question">8. I prefer not to rely on others or let them rely on me.<br><input type="radio" name="a8" value="avoidant"> Yes <input type="radio" name="a8" value="secure"> No</div>
-        <div class="question">9. I crave closeness and intimacy constantly.<br><input type="radio" name="a9" value="anxious"> Yes <input type="radio" name="a9" value="secure"> No</div>
-        <div class="question">10. I feel both a strong desire and fear of intimacy.<br><input type="radio" name="a10" value="fearful"> Yes <input type="radio" name="a10" value="secure"> No</div>
-        <button type="button" onclick="calculateAttachment()">Submit</button>
-      </form>
+      <h2>Attachment Style Quiz</h2>
+      <form id="attachmentQuiz"></form>
+      <button onclick="submitAttachment()">Submit Attachment</button>
       <div id="attachmentResult"></div>
     </div>
-
     <div class="quiz-container">
-      <h2>Personality Trait/Disorder Test</h2>
-      <form id="personalityForm">
-        <div class="question">1. I often feel superior to others.<br><input type="radio" name="p1" value="narcissistic"> Yes <input type="radio" name="p1" value="other"> No</div>
-        <div class="question">2. My emotions feel out of control often.<br><input type="radio" name="p2" value="bpd"> Yes <input type="radio" name="p2" value="other"> No</div>
-        <div class="question">3. I manipulate others to get what I want.<br><input type="radio" name="p3" value="dark"> Yes <input type="radio" name="p3" value="other"> No</div>
-        <div class="question">4. I have little remorse for wrongdoings.<br><input type="radio" name="p4" value="antisocial"> Yes <input type="radio" name="p4" value="other"> No</div>
-        <div class="question">5. I often depend on others to feel good about myself.<br><input type="radio" name="p5" value="codependent"> Yes <input type="radio" name="p5" value="other"> No</div>
-        <div class="question">6. I find myself always giving in relationships.<br><input type="radio" name="p6" value="co-narcissist"> Yes <input type="radio" name="p6" value="other"> No</div>
-        <div class="question">7. My mood swings rapidly between extremes.<br><input type="radio" name="p7" value="bipolar"> Yes <input type="radio" name="p7" value="other"> No</div>
-        <div class="question">8. I sometimes charm people to get my way.<br><input type="radio" name="p8" value="psychopath"> Yes <input type="radio" name="p8" value="other"> No</div>
-        <div class="question">9. I find it hard to form lasting emotional connections.<br><input type="radio" name="p9" value="dismissive"> Yes <input type="radio" name="p9" value="other"> No</div>
-        <div class="question">10. I feel like I switch between extremes of independence and clinginess.<br><input type="radio" name="p10" value="anxious-avoidant"> Yes <input type="radio" name="p10" value="other"> No</div>
-        <button type="button" onclick="calculatePersonality()">Submit</button>
-      </form>
+      <h2>Personality Type Quiz</h2>
+      <form id="personalityQuiz"></form>
+      <button onclick="submitPersonality()">Submit Personality</button>
       <div id="personalityResult"></div>
     </div>
   </div>
 
-  <button onclick="downloadResults()" id="downloadBtn" style="margin-top: 40px; display:none;">Download Results</button>
+  <div class="bottom-bar">
+    <button onclick="downloadResults()">Download Results</button>
+    <a class="small-coffee-button" href="https://www.buymeacoffee.com/jm101" target="_blank">
+      <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee">
+    </a>
+  </div>
 
   <script>
-    let attachmentOutcome = '';
-    let personalityOutcome = '';
+    // Attachment questions
+    const attachQ = [
+      'I fear being abandoned in relationships.',
+      'I avoid getting too close to people.',
+      'I struggle with trusting my partner.',
+      'I feel secure in my close relationships.',
+      'I worry about being too needy.',
+      'I push people away when they get too close.',
+      'I crave intimacy but fear it too.',
+      'I communicate openly with my partner.',
+      'I’m often suspicious of people’s intentions.',
+      'I feel comfortable depending on others.'
+    ];
 
-    function calculateAttachment() {
-      const answers = [...document.querySelectorAll('#attachmentForm input:checked')].map(i => i.value);
-      const score = answers.reduce((acc, val) => { acc[val] = (acc[val] || 0) + 1; return acc; }, {});
-      const result = Object.entries(score).sort((a,b) => b[1]-a[1])[0][0];
-      attachmentOutcome = result;
-      document.getElementById('attachmentResult').innerText = `Your Attachment Style: ${result.charAt(0).toUpperCase() + result.slice(1)}`;
-      showDownload();
+    // Personality questions expanded to 30
+    const persQ = [
+      'I often manipulate others to get what I want.',
+      'I experience rapid mood swings.',
+      'I disregard rules when inconvenient.',
+      'I crave admiration constantly.',
+      'I feel no guilt when hurting others.',
+      'I often feel empty or lack identity.',
+      'I use charm to influence others.',
+      'My mood changes drastically without cause.',
+      'I worry others are out to get me.',
+      'I need others’ approval to feel worthy.',
+      'I self-sacrifice my needs for others.',
+      'I prefer solitude and avoid socializing.',
+      'I feel compelled to be perfect.',
+      'I react dramatically to minor events.',
+      'I fear being controlled by others.',
+      'I break rules without remorse.',
+      'I overthink interactions repeatedly.',
+      'I need to maintain strict order.',
+      'I oscillate between idealizing and devaluing people.',
+      'I use empathy to manipulate others.',
+      'I have difficulty trusting anyone.',
+      'I avoid emotional expression.',
+      'I fear losing independence.',
+      'I seek intense relationships even if unhealthy.',
+      'I demand perfection in myself and others.',
+      'I often catastrophize small problems.',
+      'I have difficulty letting go of grudges.',
+      'I frequently feel bored and restless.',
+      'I struggle to commit even when I want to.',
+      'I get defensive when criticized.'
+    ];
+
+    const attachTypes = ['Secure','Anxious-Preoccupied','Dismissive-Avoidant','Fearful-Avoidant'];
+    const persTypes = ['Narcissistic','Borderline (BPD)','Antisocial (ASPD)','Psychopathy','Histrionic','Paranoid','Dependent','Schizoid','Obsessive-Compulsive (OCPD)','Dark Empath','Codependent','Bipolar'];
+
+    function render(formId, questions) {
+      const container = document.getElementById(formId);
+      container.innerHTML = '';
+      questions.forEach((q, i) => {
+        const div = document.createElement('div');
+        div.className = 'question';
+        div.innerHTML = `<label class="slider-label">${i+1}. ${q}</label><input type="range" min="0" max="4" value="2" name="q${i}">`;
+        container.appendChild(div);
+      });
     }
 
-    function calculatePersonality() {
-      const answers = [...document.querySelectorAll('#personalityForm input:checked')].map(i => i.value);
-      const score = answers.reduce((acc, val) => { acc[val] = (acc[val] || 0) + 1; return acc; }, {});
-      const result = Object.entries(score).sort((a,b) => b[1]-a[1])[0][0];
-      personalityOutcome = result;
-      document.getElementById('personalityResult').innerText = `Most Likely Personality Trait: ${result.charAt(0).toUpperCase() + result.slice(1)}`;
-      showDownload();
+    function calculateScores(formId, questions) {
+      const inputs = document.getElementById(formId).querySelectorAll('input');
+      const scores = {};
+      inputs.forEach((input, i) => {
+        const val = parseInt(input.value);
+        const types = formId === 'attachmentQuiz' ? attachTypes : persTypes;
+        const type = types[i % types.length];
+        scores[type] = (scores[type] || 0) + val;
+      });
+      const max = 4 * Math.ceil(Object.keys(scores).length);
+      return Object.entries(scores).map(([t, s]) => `${t}: ${Math.round(s/max*100)}%`).join('\n');
     }
 
-    function showDownload() {
-      if (attachmentOutcome && personalityOutcome) {
-        document.getElementById('downloadBtn').style.display = 'inline-block';
-      }
+    function submitAttachment() {
+      document.getElementById('attachmentResult').innerText = calculateScores('attachmentQuiz', attachQ);
+    }
+    function submitPersonality() {
+      document.getElementById('personalityResult').innerText = calculateScores('personalityQuiz', persQ);
     }
 
     function downloadResults() {
-      const content = `Attachment Style Result: ${attachmentOutcome}\nPersonality Trait Result: ${personalityOutcome}`;
-      const blob = new Blob([content], { type: 'text/plain' });
-      const link = document.createElement('a');
-      link.href = URL.createObjectURL(blob);
-      link.download = 'quiz-results.txt';
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
+      const a = document.getElementById('attachmentResult').innerText;
+      const p = document.getElementById('personalityResult').innerText;
+      const blob = new Blob([`Attachment Results:\n${a}\n\nPersonality Results:\n${p}`],{type:'text/plain'});
+      const link = document.createElement('a'); link.href = URL.createObjectURL(blob); link.download = 'results.txt'; link.click();
     }
+
+    render('attachmentQuiz', attachQ);
+    render('personalityQuiz', persQ);
   </script>
 </body>
 </html>
