@@ -16,13 +16,17 @@
     button{background:#4CAF50;color:white;border:none;padding:10px 20px;border-radius:5px;cursor:pointer;margin:5px;}
     #attachmentResult,#personalityResult{margin-top:20px;font-weight:bold;font-size:1.1rem;white-space:pre-line;}
     .bottom-bar{display:flex;flex-direction:column;align-items:center;gap:10px;margin-bottom:40px;}
-    .small-coffee-button img{height:40px;}
+    .small-coffee-button img{height:60px;}
+    .modal {display: none;position: fixed;z-index: 999;padding-top: 60px;left: 0; top: 0;width: 100%; height: 100%;overflow: auto;background-color: rgba(0,0,0,0.4);}
+    .modal-content {background-color: #fff;margin: auto;padding: 20px;border-radius: 10px;width: 80%;max-width: 500px;box-shadow: 0 5px 15px rgba(0,0,0,0.3);}
+    .close {color: #aaa;float: right;font-size: 28px;font-weight: bold;cursor: pointer;}
+    .close:hover,.close:focus {color: black;}
   </style>
 </head>
 <body>
   <h1>World Of Humans</h1>
   <div class="table-container">
-    <table>
+     <table>
       <thead>
         <tr><th>Type</th><th>Name</th><th>Description</th><th>Common Traits</th><th>Average IQ</th><th>Self-Reflection</th><th>Needs Therapy</th><th>Therapy Type</th><th>Can It Change?</th><th>Core Fear/Motivation</th><th>Stress Behavior</th><th>Empathy Level</th><th>Overlap Risks</th><th>Notes</th></tr>
       </thead>
@@ -69,7 +73,16 @@
     </a>
   </div>
 
-    <script>
+  <!-- Modal -->
+  <div id="resultsModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h2>Results</h2>
+      <pre id="modalContent"></pre>
+    </div>
+  </div>
+
+  <script>
 const attachQ = [
       { q: 'I fear being abandoned in relationships.', type: 'Anxious-Preoccupied' },
       { q: 'I worry about my partner’s love for me.', type: 'Anxious-Preoccupied' },
