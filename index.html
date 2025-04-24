@@ -69,9 +69,8 @@
     </a>
   </div>
 
-  <script>
-    // Attachment questions
-   const attachQ = [
+    <script>
+const attachQ = [
       { q: 'I fear being abandoned in relationships.', type: 'Anxious-Preoccupied' },
       { q: 'I worry about my partner’s love for me.', type: 'Anxious-Preoccupied' },
       { q: 'I feel insecure when I am not with my partner.', type: 'Anxious-Preoccupied' },
@@ -121,16 +120,14 @@
       { q: 'I feel unequipped to make decisions on my own.', type: ['Dependent'] },
       { q: 'I find it easy to express my true feelings.', type: ['Secure'] }
     ];
-    const attachTypes = ['Secure','Anxious-Preoccupied','Dismissive-Avoidant','Fearful-Avoidant'];
-    const persTypes = ['Narcissistic','Borderline (BPD)','Antisocial (ASPD)','Psychopathy','Histrionic','Paranoid','Dependent','Schizoid','Obsessive-Compulsive (OCPD)','Dark Empath','Codependent','Bipolar'];
 
     function render(formId, questions) {
       const container = document.getElementById(formId);
       container.innerHTML = '';
-      questions.forEach((q, i) => {
+      questions.forEach((item, i) => {
         const div = document.createElement('div');
         div.className = 'question';
-        div.innerHTML = `<label class="slider-label">${i+1}. ${q}</label><input type="range" min="0" max="4" value="2" name="q${i}">`;
+        div.innerHTML = `<label class="slider-label">${i+1}. ${item.q}</label><input type="range" min="0" max="4" value="2" name="q${i}">`;
         container.appendChild(div);
       });
     }
@@ -140,19 +137,34 @@
       const scores = {};
       inputs.forEach((input, i) => {
         const val = parseInt(input.value);
-        const types = formId === 'attachmentQuiz' ? attachTypes : persTypes;
-        const type = types[i % types.length];
+        const type = questions[i].type;
         scores[type] = (scores[type] || 0) + val;
       });
-      const max = 4 * Math.ceil(Object.keys(scores).length);
-      return Object.entries(scores).map(([t, s]) => `${t}: ${Math.round(s/max*100)}%`).join('\n');
+      const max = Math.max(...Object.values(scores));
+      return Object.entries(scores)
+        .sort((a,b) => b[1]-a[1])
+        .map(([t, s]) => `${t}: ${Math.round(s/max*100)}%`).join('\n');
+    }
+
+    function showModal(content) {
+      document.getElementById('modalContent').innerText = content;
+      document.getElementById('resultsModal').style.display = 'block';
+    }
+
+    function closeModal() {
+      document.getElementById('resultsModal').style.display = 'none';
     }
 
     function submitAttachment() {
-      document.getElementById('attachmentResult').innerText = calculateScores('attachmentQuiz', attachQ);
+      const result = calculateScores('attachmentQuiz', attachQ);
+      document.getElementById('attachmentResult').innerText = result;
+      showModal(`Attachment Results:\n${result}`);
     }
+
     function submitPersonality() {
-      document.getElementById('personalityResult').innerText = calculateScores('personalityQuiz', persQ);
+      const result = calculateScores('personalityQuiz', persQ);
+      document.getElementById('personalityResult').innerText = result;
+      showModal(`Personality Results:\n${result}`);
     }
 
     function downloadResults() {
